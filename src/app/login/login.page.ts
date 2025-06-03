@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
-  constructor() { }
+  username: string = '';
+  password: string = '';
 
-  ngOnInit() {
+  constructor() {}
+
+  onLogin() {
+    // Aquí va la logica de autentificacion
+    if (this.username === 'admin' && this.password === '1234') {
+      alert('¡Login exitoso!');
+    
+    } else {
+      alert('Usuario o contraseña incorrectos.');
+    }
   }
-
 }
